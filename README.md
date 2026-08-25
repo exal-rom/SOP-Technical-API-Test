@@ -1,40 +1,91 @@
 # SOP Technical API Test Suite
 
-This project contains automated API tests implemented using Playwright.  
-The test suite covers authentication, user management, pagination, delay handling, and chained request flows.
+Automated API test suite built using **Playwright**.  
+Covers authentication, user management, pagination, delay handling, and chained request flows.
 
-## Project Structure
+---
 
-- `tests/` – Contains all API test suites, grouped by functionality
-- `Docs/` – Contains the Test Plan (Markdown + PDF)
-- `playwright.config.ts` – Global configuration
+## 📁 Project Structure
 
-## Test Suites
+```
+tests/
+  auth.spec.ts
+  users.spec.ts
+  users_edge_cases.spec.ts
+  pagination.spec.ts
+  delay.spec.ts
+  chained.spec.ts
 
-- `auth.spec.ts` – Authentication & input validation
-- `users.spec.ts` – User retrieval & CRUD operations
-- `users_edge_cases.spec.ts` – User creation edge cases
-- `pagination.spec.ts` – Pagination & data integrity
-- `delay.spec.ts` – Delay parameter behavior
-- `chained.spec.ts` – Chained request flows
-- `Bonus Question 2: Theory` - Response
+Docs/
+  Test Plan.md
+  Test Plan.pdf
 
-## Running Tests
+playwright.config.ts
+```
 
-1, Install dependencies:
-    npm install
+- **tests/** – All API test suites grouped by functionality  
+- **Docs/** – Test Plan (Markdown + PDF)  
+- **playwright.config.ts** – Global configuration (baseURL, reporters, parallelism)
 
-2. Run all tests:
-    npx playwright test
+---
 
-3. Run a specific suite:
-   npx playwright test tests/auth.spec.ts
+## 🧪 Test Suites
 
+### `auth.spec.ts`
+Authentication scenarios and input validation.
 
-## Notes
+### `users.spec.ts`
+User retrieval and basic CRUD operations.
 
-- Tests are organized to match the Test Plan in `Docs/`
-- Each suite runs independently and in parallel
-- No authentication token is required for this API
+### `users_edge_cases.spec.ts`
+User creation edge cases:
+- missing fields  
+- invalid types  
+- empty strings  
+- Unicode input  
+- defensive handling of Reqres instability  
 
+### `pagination.spec.ts`
+Pagination behavior and data integrity checks.
 
+### `delay.spec.ts`
+Delay parameter behavior and throttling responses.
+
+### `chained.spec.ts`
+Chained request flows (multi‑step API interactions).
+
+### Bonus Question 2: Theory  
+Written response included as part of the technical challenge.
+
+---
+
+## 🚀 Running Tests
+
+### 1. Install dependencies
+```bash
+npm install
+```
+
+### 2. Run all tests
+```bash
+npx playwright test
+```
+
+### 3. Run a specific suite
+```bash
+npx playwright test tests/auth.spec.ts
+```
+
+### 4. Open the HTML report
+```bash
+npx playwright show-report
+```
+
+---
+
+## 📌 Notes
+
+- Test suites are organized according to the Test Plan in `Docs/`  
+- All suites run independently and in parallel  
+- No authentication token is required (Reqres demo API)  
+- Edge‑case tests include defensive logic for non‑deterministic Reqres responses  

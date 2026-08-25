@@ -11,7 +11,7 @@ Covers:
 3. User creation, update, and deletion workflows
 */
 
-import { test, expect } from './fixtures';
+import { test, expect } from '@playwright/test';
 
 test('GET /api/users/2 returns valid user details', async ({ request }) => {
   const response = await request.get('/api/users/2');
